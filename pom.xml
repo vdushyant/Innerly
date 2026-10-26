@@ -11,8 +11,8 @@
 	<groupId>net.engineeringdigest</groupId>
 	<artifactId>journalApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Journal App</name>
-	<description>E2EE Journal App</description>
+	<name>Innerly</name>
+	<description>Personal journal application</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<sonar.organization>dushyant-verma</sonar.organization>

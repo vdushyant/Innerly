@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.dao.DuplicateKeyException;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -38,12 +39,8 @@ public class UserService {
             user.setRoles(Arrays.asList("USER"));
             userRepository.save(user);
             return true;
-        }catch (Exception e){
-            log.trace("hahahhah");
-            log.debug("hahahhah");
-            log.info("hahahhah");
-            log.warn("hahahhah");
-            log.error("Error occured for {} : ", user.getUserName(), e);
+        }catch (DuplicateKeyException e){
+            log.info("Registration rejected because username '{}' is already registered", user.getUserName());
             return false;
         }
     }

@@ -61,4 +61,10 @@ public class UserController {
         return new ResponseEntity<>("hi "+authentication.getName() + greeting,HttpStatus.OK);
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<?> currentUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return ResponseEntity.ok(java.util.Collections.singletonMap("userName", authentication.getName()));
+    }
+
 }

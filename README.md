@@ -1,52 +1,55 @@
-# Spring Boot Journal Application
+# Innerly
 
-## Overview
-This is a **Spring Boot-based Journal Application** that allows users to create, manage, and retrieve journal entries. The application provides a set of RESTful APIs secured with authentication.
+Innerly is a personal journal application with a Spring Boot backend and a separate web frontend.
 
 ## Features
-- **User Authentication & Authorization** 
-- **CRUD Operations on Journal Entries**
-- **Rate Limiting & Security Measures**
-- **Database Integration with MongoDB**
 
-## Technologies Used
-- **Spring Boot**
-- **Spring Security (JWT Authentication)**
-- **MongoDB (Spring Data MongoDB)**
-- **Redis & Kafka (if applicable)**
+- Create an account and sign in with JWT authentication.
+- Create, search, read, edit, and delete journal entries.
+- Keep each user's entries scoped to their account.
+- Use a responsive web interface on desktop or mobile.
 
-## Getting Started
-### Prerequisites
-Ensure you have the following installed:
-- Java 17+
-- Maven 3+
-- MongoDB (if using a local database)
+## Technologies used
 
-### Installation & Setup
-#### Clone the repository:
-```bash
-  git clone https://github.com/Dushyant-K/journal-app.git
-  cd journal-app
-```
-#### Configure the Database:
-Update `application.properties` or `application.yml` with your MongoDB credentials:
-```properties
-spring.data.mongodb.uri=mongodb://localhost:27017/journal_db
-```
+- Java 17, Spring Boot, Spring Security, and Maven
+- MongoDB for users and journal entries
+- JWT for API authentication
+- Vite, JavaScript, and CSS for the frontend
+- Redis for weather-response caching
 
-#### Build and Run the Application:
-```bash
-  mvn clean install
-  mvn spring-boot:run
+## Prerequisites
+
+- Java 17
+- Docker Desktop with MongoDB available as a replica set
+- Node.js and npm
+
+## Local setup
+
+Start MongoDB locally as a replica set, then run the backend and frontend in separate terminals.
+
+From the backend project directory, start the API:
+
+```powershell
+.\mvnw.cmd spring-boot:run
 ```
 
-The application will be available at: `http://localhost:8080`
+From the frontend project directory, install dependencies and start the web app:
 
-The application will be available at `journalapplication-production-7081.up.railway.app`
+```powershell
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite. The frontend connects to the backend through its development proxy.
+
+## API requests
+
+Import the [Innerly Postman collection](docs/spring%20boot%20journal.postman_collection.json) to explore the API. Set its `user_name` and `password` variables, then run **Sign up** and **Log in** before using authenticated requests.
 
 ## Contribution
+
 Contributions are welcome! Feel free to open issues and submit pull requests.
 
 ## License
-This project is licensed under the MIT License.
 
+This project is licensed under the MIT License.
